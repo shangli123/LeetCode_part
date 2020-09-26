@@ -422,6 +422,15 @@ class Solution:
     def reverseBits(self, n: int) -> int:
         return int(str(bin(n))[2:].zfill(32)[::-1], 2)
 
+    # Qucik sort
+    def quicksort(self, arr: [int]) -> [int]:    
+        if len(arr) <= 1:        
+            return arr    
+        pivot = arr[len(arr) // 2]    
+        left = [x for x in arr if x < pivot]    
+        middle = [x for x in arr if x == pivot]    
+        right = [x for x in arr if x > pivot]    
+        return Solution.quicksort(self, left) + middle + Solution.quicksort(self, right)
 
 a = Solution()
-# print(a.reverseBits(2))
+print(a.quicksort([3,5,7,1,2,4]))
